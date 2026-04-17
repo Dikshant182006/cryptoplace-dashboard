@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
-import { CoinContext } from "../../context/coinContext";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  
   return (
     <>
       <div className="flex items-center justify-between p-4 mx-10">
         <div className="flex items-center gap-2">
-        <img src="logo.svg" alt="logo" className="invert w-10"/>
-        <h2 className="font-bold cursor-pointer text-2xl">Cryptoplace</h2>
+          <img src="logo.svg" alt="logo" className="invert w-10" />
+          <h2 className="font-bold cursor-pointer text-2xl">Cryptoplace</h2>
         </div>
         <ul className="flex gap-10">
           <li className="cursor-pointer">Home</li>
@@ -22,12 +21,12 @@ function Navbar() {
             <option className="bg-black">INR</option>
             <option className="bg-black">EUR</option>
           </select>
-        <button className="px-5 py-2 rounded-xl bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 transition-all duration-300">
-  Sign Up
-</button> 
+          <Link to="/signup" className="px-5 py-2 rounded-xl bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 transition-all duration-300">
+            Sign Up
+          </Link>
         </div>
       </div>
-      <hr className="border-2 border-zinc-800"/>
+      <hr className="border-2 border-zinc-800" />
     </>
   );
 }

@@ -3,6 +3,7 @@ import Navbar from './navbar/navbar.jsx'
 import { Routes, Route } from "react-router-dom";
 import Home from '../pages/Home/Home.jsx';
 import Coin from '../pages/Coin/Coin.jsx';
+import SignUp from '../pages/SignUp/SignUp.jsx';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/coin/:coinId' element={<Coin/>}/>
+      <Route path='/signup' element={<SignUp/>}/>
     </Routes>
     </div>
   );
