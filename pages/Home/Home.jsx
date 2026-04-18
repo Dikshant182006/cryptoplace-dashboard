@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useContext , useState , useEffect } from "react";
+import { CoinContext } from "../../context/coinContext";
 
 const Home = () => {
+
+  const {allCoin , currency} = useContext(CoinContext);
+  const [displayCoin , setDisplayCoin] = useState([]);
+
+  useEffect(() => {
+    setDisplayCoin(allCoin);
+  }, [allCoin]);
+
   return (
     <div className="home p-2">
       <div className="hero flex flex-col justify-center items-center my-10">
@@ -25,7 +34,7 @@ const Home = () => {
           </button>
         </form>
       </div>
-      <div className="crypto-table max-w-[50vw] m-auto">
+      <div className="crypto-table max-w-[50vw] min-h-[50vh] pb-5 m-auto bg-slate-900 mb-6 rounded-2xl">
         <div className="table-layout bg-[linear-gradient(to_bottom,#2e1065,#020617)] grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] p-2 px-3 rounded-lg border-black">
           <p>#</p>
           <p>Coins</p>
@@ -33,6 +42,21 @@ const Home = () => {
           <p className="text-center">24H Change</p>
           <p className="text-right">Market Cap</p>
         </div>
+        {
+          displayCoin.slice(0,8).map((item, index) => (
+            <div key={item.id} className="grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] items-center py-4 px-4 border-b text-sm last:border-0">
+              <p>{item.market_cap_rank}</p>
+              <div className="flex items-center gap-2">
+                <img src={item.image} alt="coinImage" className="w-10" />
+                <p>{item.name + " - " + item.symbol}</p>
+              </div>
+              <p>{currency.symbol}{item.current_price.toLocaleString()}</p>
+              <p className={item.price_change_percentage_24h>0? "text-green-800": "text-red-800"}>
+                {Math.floor(item.price_change_percentage_24h*100)/100}</p>
+              <p className="text-end">{currency.symbol}{item.market_cap.toLocaleString()}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   );

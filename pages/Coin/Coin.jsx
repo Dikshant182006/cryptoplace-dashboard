@@ -1,11 +1,11 @@
-import React from 'react' 
+import React from 'react'
 
-const Coin = () => {
+const coin = () => {
   return (
     <div>
-      <h2>Hi , I am a Coin Webpage</h2>
+      <h2>Hi , I am a coin module.</h2>
     </div>
   )
 }
 
-export default Coin
+export default coin
