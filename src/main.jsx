@@ -6,11 +6,9 @@ import App from "./App.jsx";
 import CoinContextProvider from "../context/coinContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
     <BrowserRouter>
     <CoinContextProvider>
         <App />
     </CoinContextProvider>
     </BrowserRouter>
-  </StrictMode>,
 );

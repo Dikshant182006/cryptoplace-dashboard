@@ -2,30 +2,13 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { CoinContext } from "../../context/coinContext";
+import logo from "../assets/logo.svg"
+import setting from "../assets/setting.svg"
 
 function Navbar() {
 
   const {setCurrency} = useContext(CoinContext);
-  // const currencyHandler = (e)=> {
-  //   switch(e.target.value){
-  //     case "usd": {
-  //       setCurrency({name : "usd", symbol: "$"});
-  //       break;
-  //     }
-  //     case "inr": {
-  //       setCurrency({name : "inr", symbol: "₹"});
-  //       break;
-  //     }
-  //     case "eur": {
-  //       setCurrency({name : "eur", symbol: "€"});
-  //       break;
-  //     }
-  //     default : {
-  //       setCurrency({name : "usd", symbol: "$"});
-  //       break;
-  //     }
-  //   }
-  // }
+
   const currencyHandler = (e) => {
   const value = e.target.value;
 
@@ -43,29 +26,29 @@ function Navbar() {
 
   return (
     <>
-      <div className="flex items-center justify-between p-4 mx-10">
+      <div className="flex items-center justify-between p-2 px-5 bg-neutral-900 w-screen fixed">
         <div className="flex items-center gap-2">
-          <img src="logo.svg" alt="logo" className="invert w-10" />
-          <h2 className="font-bold cursor-pointer text-2xl">Cryptoplace</h2>
+          <img src={logo} alt="logo" className="cursor-pointer w-9 h-9 hover:scale-110 transition"/>
+          <Link to={"/"} className="font-bold cursor-pointer text-lg">Cryptoplace</Link>
         </div>
-        <ul className="flex gap-10">
-          <NavLink to="/" className={({isActive}) => isActive? "underline font-bold" : ""}>Home</NavLink>
-          <li className="cursor-pointer">Features</li>
-          <li className="cursor-pointer">Pricing</li>
-          <li className="cursor-pointer">Blog</li>
+        <ul className="flex gap-10 items-center">
+          <li className="cursor-pointer bg-neutral-800 rounded-lg p-1 hover:bg-orange-400 hover:text-black text-sm px-4 text-white/60">Portfolio Tracker</li>
+          <Link to={"/"} className="hover:border-b-2 border-orange-300">Home</Link>
+          <Link to={"/coins/"} className="cursor-pointer hover:border-b-2 border-orange-300">CryptoCurrencies</Link>
+          <img className="cursor-pointer" src={setting} alt="setting" />
         </ul>
-        <div className="currency-box flex gap-5">
-          <select className="cursor-pointer" onChange={currencyHandler}>
+        <div className="currency-box flex gap-5 ">
+          <select className="cursor-pointer bg-[#1f1f1f] px-3 justify-center rounded-lg hover:bg-gray-900" onChange={currencyHandler}>
             <option value="usd" className="bg-black">USD</option>
             <option value="inr" className="bg-black">INR</option>
             <option value="eur" className="bg-black">EUR</option>
           </select>
-          <Link to="/signup" className="px-5 py-2 rounded-xl bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 transition-all duration-300">
-            Sign Up
+          <Link to="/signup" className="px-5 py-2 rounded-xl bg-orange-600 backdrop-blur-md text-white border border-white/20 hover:bg-orange-500 transition-all duration-300">
+            Get Started
           </Link>
         </div>
       </div>
-      <hr className="border-2 border-zinc-800" />
+      <hr className="border border-zinc-800" />
     </>
   );
 }

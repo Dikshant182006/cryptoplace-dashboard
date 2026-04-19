@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
-    <div className="min-h-screen bg-[#070816] flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-black flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-5xl rounded-[30px] bg-[#090d1f] border border-[#131933] shadow-[0_0_80px_rgba(41,98,255,0.12)] overflow-hidden">
         <div className="grid grid-cols-2 min-h-[99vh]">
           

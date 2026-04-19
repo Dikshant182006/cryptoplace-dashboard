@@ -7,6 +7,7 @@ const CoinContextProvider = (props) => {
     name: "usd",
     symbol: "$",
   });
+  const [wholeData , setWholeData] = useState();
 
   const fetchAllCoin = async () => {
     try {
@@ -16,7 +17,6 @@ const CoinContextProvider = (props) => {
       if(!response.ok){
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
       const data = await response.json();
       setAllCoin(data);
     } catch(error) {
@@ -24,12 +24,32 @@ const CoinContextProvider = (props) => {
     }
   }
 
+  const globalData = async () => {
+    try {
+      const response = await fetch ("https://api.coingecko.com/api/v3/global");
+      
+      if(!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+        const data = await response.json();
+        setWholeData(data.data);
+        console.log(data.data);
+    } catch(error) {
+      console.log("Fetch Error:", error.message);
+    };
+  }
+
+  useEffect(() => {
+    globalData();
+  }, []);
+
   useEffect(() => {
     fetchAllCoin();
   }, [currency.name ]);
   
   const contextValue = {
-    allCoin , currency , setCurrency
+    allCoin , currency , setCurrency , wholeData
   };
 
   return (
