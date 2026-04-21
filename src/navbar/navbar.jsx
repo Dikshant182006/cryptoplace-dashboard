@@ -32,9 +32,9 @@ function Navbar() {
           <Link to={"/"} className="font-bold cursor-pointer text-lg">Cryptoplace</Link>
         </div>
         <ul className="flex gap-10 items-center">
-          <li className="cursor-pointer bg-neutral-800 rounded-lg p-1 hover:bg-orange-400 hover:text-black text-sm px-4 text-white/60">Portfolio Tracker</li>
-          <Link to={"/"} className="hover:border-b-2 border-orange-300">Home</Link>
-          <Link to={"/coins/"} className="cursor-pointer hover:border-b-2 border-orange-300">CryptoCurrencies</Link>
+          <li className="cursor-pointer bg-neutral-800 rounded-lg p-1 hover:bg-orange-400 hover:text-black text-sm px-4 text-white/60 font-bold">Portfolio Tracker</li>
+          <NavLink to={"/"} className={({isActive}) => isActive? "border-b-2 border-orange-300" : ""}>Home</NavLink>
+          <NavLink to={"/coins/"} className={({isActive}) => isActive? "border-b-2 border-orange-300" : ""} >CryptoCurrencies</NavLink>
           <img className="cursor-pointer" src={setting} alt="setting" />
         </ul>
         <div className="currency-box flex gap-5 ">

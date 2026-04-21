@@ -12,7 +12,7 @@ const CoinContextProvider = (props) => {
   const fetchAllCoin = async () => {
     try {
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h,24h,7d`
       );
       if(!response.ok){
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -45,7 +45,7 @@ const CoinContextProvider = (props) => {
 
   useEffect(() => {
     fetchAllCoin();
-  }, [currency.name ]);
+  }, [currency.name]);
   
   const contextValue = {
     allCoin , currency , setCurrency , wholeData
