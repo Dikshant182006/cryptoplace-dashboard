@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp/SignUp.jsx";
 import Footer from "./Footer/Footer.jsx";
 import CryptoList from "../pages/Cryptocurrency/CryptoList.jsx";
 import Tracker from "../pages/CrytoTracker/Tracker.jsx";
+import HelpCenter from "./Footer/HelpCenter.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/coin/:coinId" element={<Coin />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/tracker" element={<Tracker />} />
+        <Route path="/helpCenter" element={<HelpCenter />} />
       </Routes>
       <Footer/>
     </div>

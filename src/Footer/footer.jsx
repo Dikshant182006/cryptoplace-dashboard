@@ -28,13 +28,11 @@ const Footer = () => {
             </div>
           </div>
 
-            <div className="grid grid-cols-[1fr_1fr_1fr] text-gray-500 gap-x-10">
-              <p className="cursor-pointer hover:text-orange-400">About Us</p>
-              <p className="cursor-pointer hover:text-orange-400">Currencies</p>
-              <p className="cursor-pointer hover:text-orange-400">Help Center</p>
-              <p className="cursor-pointer hover:text-orange-400">Markets</p>
-              <p className="cursor-pointer hover:text-orange-400">Contact</p>
-              <p className="cursor-pointer hover:text-orange-400">Features</p>
+            <div className="grid grid-cols-[1fr_1fr] text-gray-500 gap-x-10">
+              <Link className="cursor-pointer hover:text-orange-400">About Us</Link>
+              <Link to={"/coins/"} className="cursor-pointer hover:text-orange-400">Currencies</Link>
+              <Link to={"/helpCenter"} className="cursor-pointer hover:text-orange-400">Help Center</Link>
+              <Link className="cursor-pointer hover:text-orange-400">Features</Link>
             </div>
           </div>
 
