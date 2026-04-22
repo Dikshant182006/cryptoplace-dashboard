@@ -3,7 +3,7 @@ import { CoinContext } from "../../context/coinContext";
 import { Link } from "react-router-dom";
 import chatgpt from "../../src/assets/chatgpt.svg";
 import gemini from "../../src/assets/gemini.svg";
-import grok from "../../src/assets/grok.svg";
+import claude from "../../src/assets/claude.svg";
 
 const Home = () => {
   const { allCoin, currency } = useContext(CoinContext);
@@ -15,6 +15,27 @@ const Home = () => {
     if (e.target.value === "") {
       setDisplayCoin(allCoin);
     }
+  };
+
+  const handleChat = (e) => {
+    const prompt = "Best crypto Tracker";
+    const encoded = encodeURIComponent(prompt);
+
+    const url = `https://chatgpt.com/?q=${encoded}`;
+    window.open(url, "_blank");
+  };
+
+  const handleGemini = (e) => {
+    const url = "https://aistudio.google.com/";
+    window.open(url);
+  };
+
+  const handleClaude = (e) => {
+    const prompt = "Best crypto Tracker";
+    const encoded = encodeURIComponent(prompt);
+
+    const url = "https://claude.ai/";
+    window.open(url);
   };
 
   const searchHandle = (e) => {
@@ -36,7 +57,7 @@ const Home = () => {
         <div>
           <div className="hero flex flex-col justify-center items-center my-10 relative z-10">
             <div className="flex flex-col items-center ">
-              <div className="mb-2 px-4 py-1 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 text-sm font-medium ">
+              <div className="mb-2 px-4 py-1 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 text-sm font-medium">
                 🚀 Real-Time Crypto Data
               </div>
 
@@ -146,32 +167,39 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="cryptoAi my-15">
-        <div className="bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#2e1065] m-auto rounded-2xl h-[40vh] w-[90vw] flex flex-col items-center justify-center gap-10">
+      <div className="cryptoAi my-15 relative">
+        <div className="absolute left-1/2 -translate-x-1/3 w-[30vw] h-[50vh] bg-[#3d2e1e]/20 blur-[120px]" />
+        <div className="bg-gradient-to-br from-[#161412] to-[#111010] m-auto rounded-2xl h-[55vh] w-[90vw] flex flex-col items-center justify-center gap-5">
+
           <h2 className="font-bold text-4xl">
-            Want to know Best Crypto Tracker?
+            Find the Best Crypto Tracker with AI
           </h2>
-          <p className="text-xl text-white/70">
-            Click the button to help from the AI.
+          <p className="text-2xl text-center text-white/70">
+            Ask AI anything about crypto <br /> instantly.
           </p>
-          <div
-            className="flex gap-10 items-center justify-center"
-          >
+          <div className="flex gap-10 items-center justify-center">
             <div
-              className="flex items-center gap-3 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer"
+              onClick={handleChat}
+              className="flex items-center gap-1 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer"
             >
-              <img src={chatgpt} alt="" className="invert" />
+              <img src={chatgpt} alt="chatgptImg" className="invert" />
               <button className="cursor-pointer">Ask ChatGPT</button>
             </div>
 
-            <div className="flex items-center gap-3 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer">
-              <img src={gemini} alt="" />
+            <div
+              onClick={handleGemini}
+              className="flex items-center gap-1 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer"
+            >
+              <img src={gemini} alt="geminiImg" />
               <button className="cursor-pointer">Ask Gemini</button>
             </div>
 
-            <div className="flex items-center gap-3 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer">
-              <img src={grok} alt="" className="invert w-6" />
-              <button className="cursor-pointer">Ask Grok</button>
+            <div
+              onClick={handleClaude}
+              className="flex items-center gap-1 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer"
+            >
+              <img src={claude} alt="claudeImg" className="w-6" />
+              <button className="cursor-pointer">Ask Claude</button>
             </div>
           </div>
         </div>

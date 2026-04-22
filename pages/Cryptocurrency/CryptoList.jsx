@@ -32,35 +32,35 @@ const CryptoList = () => {
         </div>
 
         <div className="market-cap flex gap-7 justify-center mt-8">
-          <div className="box1 bg-red-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3">
+          <div className={wholeData.market_cap_change_percentage_24h_usd.toFixed(2)>0? " bg-green-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3" : "bg-red-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3"} >
             <p>Market Cap </p>
             <div className="flex gap-3 items-center">
               <h2 className="text-xl font-bold text-white">
                 ${wholeData.total_market_cap.usd.toLocaleString()}
               </h2>
-              <span className="bg-red-900 py-1 px-1.5 rounded-lg text-white">
+              <span className={wholeData.market_cap_change_percentage_24h_usd.toFixed(2)>0? "bg-green-800 py-1 px-1.5 rounded-lg text-white": "bg-red-900 py-1 px-1.5 rounded-lg text-white"}>
                 {wholeData.market_cap_change_percentage_24h_usd.toFixed(2)}%
               </span>
             </div>
           </div>
-          <div className="box2 bg-green-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3">
+          <div className="box2" className={wholeData.volume_change_percentage_24h_usd.toFixed(2)>0? " bg-green-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3" : "bg-red-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3"} >
             <p>Volume 24h</p>
             <div className="flex gap-3 items-center">
               <h2 className="text-xl font-bold text-white">
                 ${wholeData.total_volume.usd.toLocaleString()}
               </h2>
-              <span className="bg-green-800 py-1 px-1.5 rounded-lg text-white">
+              <span className="" className={wholeData.volume_change_percentage_24h_usd.toFixed(2)>0? "bg-green-800 py-1 px-1.5 rounded-lg text-white": "bg-red-00 py-1 px-1.5 rounded-lg text-white"} >
                 {wholeData.volume_change_percentage_24h_usd.toFixed(2)}%
               </span>
             </div>
           </div>
-          <div className="box3  bg-red-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3">
+          <div className="box3 bg-red-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3" className={wholeData.market_cap_percentage.btc.toFixed(1)>0? "bg-green-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3" : "bg-red-950 w-[27vw] h-[15vh] text-white/70 rounded-lg p-3"} >
             <p>BTC Dominance</p>
             <div className="flex gap-3 items-center">
               <h2 className="font-bold text-xl text-white">
                 {wholeData.market_cap_percentage.btc.toFixed(1)}%
               </h2>
-              <span className="bg-red-900 py-1 px-2 rounded-lg text-white">
+              <span className="bg-red-900 py-1 px-2 rounded-lg text-white" className={wholeData.market_cap_percentage.btc.toFixed(1)>0? "bg-green-900 py-1 px-2 rounded-lg text-white": "bg-green-800 py-1 px-2 rounded-lg text-white"} >
                 0.5%
               </span>
             </div>
@@ -92,7 +92,7 @@ const CryptoList = () => {
                 </p>
                 <span className="text-white/70">{item.symbol.toUpperCase()}</span>
               </div>
-              <p className={item.price_change_percentage_1h_in_currency>-0? "text-green-500": "text-red-600"}>{item.price_change_percentage_1h_in_currency?.toFixed(2) ??"0.0"}</p>
+              <p className={item.price_change_percentage_1h_in_currency>0? "text-green-500": "text-red-600"}>{item.price_change_percentage_1h_in_currency?.toFixed(2) ??"0.0"}</p>
               <p className={item.price_change_percentage_24h_in_currency>0? "text-green-500": "text-red-600"}>{item.price_change_percentage_24h_in_currency?.toFixed(2)?? "0.0"}</p>
               <p className={item.price_change_percentage_7d_in_currency>0? "text-green-500": "text-red-600"}>{item.price_change_percentage_7d_in_currency?.toFixed(2)?? "0.0"}</p>
               <p>{currency.symbol}{item.current_price}</p>

@@ -19,7 +19,6 @@ const CoinContextProvider = (props) => {
       }
       const data = await response.json();
       setAllCoin(data);
-      console.log(data);
     } catch(error) {
       console.log("Fetch Error:", error.message);
     }

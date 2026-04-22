@@ -1,19 +1,57 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className='bg-[#090909] h-[80vh]'>
-      <div className='flex flex-col gap-6 p-10'>
-      <Link className='text-white transition-all duration-300 hover:cursor-pointer'>About Us</Link>
-      <Link>CryptoNews</Link>
-      <Link>CryptoCurrencies</Link>
-      <Link>Help Center</Link>
+    <footer className="relative bg-[#090909] overflow-hidden ">
+      {/* Glow blobs */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50vw] h-[30vh] bg-orange-600/15 blur-[120px] rounded-full" />
+      <div className="absolute top-10 left-10 w-[30vw] h-[30vh] bg-yellow-500/10 blur-[90px] rounded-full " />
+      {/* Top divider line */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
+      {/* Main content */}
+      <div className="relative max-w-6xl mx-auto px-10 pt-16 pb-10">
+        {/* Top section */}
+        <div className="flex items-start flex-wrap gap-90 mb-16">
+          {/* Brand */}
+          <div className="flex flex-col gap-3 max-w-xs">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-orange-600 flex items-center justify-center text-black font-bold text-sm">
+                C
+              </div>
+              <span className="text-white font-bold text-xl">CryptoPlace</span>
+            </div>
+            <div className="flex">
+              <p className="text-gray-500 text-sm leading-6">
+                Your gateway to real-time crypto data, market insights.
+              </p>
+            </div>
+          </div>
+
+            <div className="grid grid-cols-[1fr_1fr_1fr] text-gray-500 gap-x-10">
+              <p className="cursor-pointer hover:text-orange-400">About Us</p>
+              <p className="cursor-pointer hover:text-orange-400">Currencies</p>
+              <p className="cursor-pointer hover:text-orange-400">Help Center</p>
+              <p className="cursor-pointer hover:text-orange-400">Markets</p>
+              <p className="cursor-pointer hover:text-orange-400">Contact</p>
+              <p className="cursor-pointer hover:text-orange-400">Features</p>
+            </div>
+          </div>
+
+        {/* Bottom divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+        {/* Big brand name */}
+        <h2 className="text-9xl font-black text-center bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 bg-clip-text text-transparent leading-none opacity-20 select-none tracking-tighter">
+          CryptoPlace
+        </h2>
+        {/* Copyright */}
+        <p className="text-center text-gray-600 text-xs mt-4">
+          © 2025 CryptoPlace. All rights reserved. Built with ❤️ for crypto
+          enthusiasts.
+        </p>
       </div>
+    </footer>
+  );
+};
 
-      <h2 className='text-8xl flex justify-center items-center bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 bg-clip-text text-transparent'>CryptoPlace</h2>
-    </div>
-  )
-}
-
-export default Footer
+export default Footer;

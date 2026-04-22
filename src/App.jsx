@@ -6,6 +6,7 @@ import Coin from "../pages/Coin/Coin.jsx"
 import SignUp from "../pages/SignUp/SignUp.jsx";
 import Footer from "./Footer/Footer.jsx";
 import CryptoList from "../pages/Cryptocurrency/CryptoList.jsx";
+import Tracker from "../pages/CrytoTracker/Tracker.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/coins/" element={<CryptoList />} />
         <Route path="/coin/:coinId" element={<Coin />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/tracker" element={<Tracker />} />
       </Routes>
       <Footer/>
     </div>
