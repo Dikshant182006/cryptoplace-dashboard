@@ -29,10 +29,10 @@ const Footer = () => {
           </div>
 
             <div className="grid grid-cols-[1fr_1fr] text-gray-500 gap-x-10">
-              <Link className="cursor-pointer hover:text-orange-400">About Us</Link>
+              <Link to={"/aboutus"} className="cursor-pointer hover:text-orange-400">About Us</Link>
               <Link to={"/coins/"} className="cursor-pointer hover:text-orange-400">Currencies</Link>
               <Link to={"/helpCenter"} className="cursor-pointer hover:text-orange-400">Help Center</Link>
-              <Link className="cursor-pointer hover:text-orange-400">Features</Link>
+              <Link to={"/features"} className="cursor-pointer hover:text-orange-400">Features</Link>
             </div>
           </div>
 

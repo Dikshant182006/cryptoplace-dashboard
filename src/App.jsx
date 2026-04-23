@@ -8,6 +8,8 @@ import Footer from "./Footer/Footer.jsx";
 import CryptoList from "../pages/Cryptocurrency/CryptoList.jsx";
 import Tracker from "../pages/CrytoTracker/Tracker.jsx";
 import HelpCenter from "./Footer/HelpCenter.jsx";
+import AboutUs from "./Footer/AboutUs.jsx";
+import Features from "./Footer/Features.jsx";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/tracker" element={<Tracker />} />
         <Route path="/helpCenter" element={<HelpCenter />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/features" element={<Features />} />
       </Routes>
       <Footer/>
     </div>
