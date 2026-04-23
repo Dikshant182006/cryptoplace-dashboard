@@ -66,7 +66,7 @@ const Home = () => {
                   Explore Crypto Markets with <br /> Real-Time Data
                 </h2>
 
-                <p className="text-center leading-7 w-[35vw] py-3 text-gray-400">
+                <p className="text-center leading-7 w-full sm:w-[80%] lg:w-[35vw] py-3 text-gray-400">
                   Welcome to the world's largest cryptocurrency marketplace.
                   Sign up to explore more about cryptos.
                 </p>
@@ -75,24 +75,25 @@ const Home = () => {
                   onSubmit={searchHandle}
                   className="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full overflow-hidden shadow-lg w-[35vw] focus-within:ring-2 focus-within:ring-purple-400 transition-all"
                 >
-                  <span className="pl-4 text-gray-400 text-lg">🔍</span>
+                  <span className="pl-4 text-gray-400 text-lg ">🔍</span>
                   <input
                     onChange={handleInput}
                     value={input}
                     required
                     type="text"
                     placeholder="Search crypto..."
-                    className="flex-1 px-3 py-3 bg-transparent text-white placeholder-gray-400 outline-none text-sm"
+                    className="flex-1 px-4 py-3 bg-transparent text-white placeholder-gray-400 outline-none text-sm"
                   />
+
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-[linear-gradient(to_right,#a855f7,#d946ef)] text-white font-medium hover:opacity-90 transition-all rounded-full m-1 cursor-pointer"
+                    className="px-5 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium rounded-full m-1 hover:opacity-90 transition"
                   >
                     Search
                   </button>
                 </form>
 
-                <div className="flex gap-8 mt-10 text-center">
+                <div className="flex flex-col gap-4 mt-10 sm:flex-row sm:gap-8 sm:mt-10 text-center">
                   <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10">
                     <p className="text-purple-400 font-bold text-xl">10,000+</p>
                     <p className="text-gray-400 text-xs mt-1">
@@ -113,7 +114,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="crypto-table max-w-[80vw] pb-5 m-auto bg-[#0A0A0A] mb-6 rounded-2xl mt-10">
+
+     <div className="overflow-x-auto">
+
+     <div className="crypto-table sm:max-w-[80vw] min-w-[700px] pb-5 m-auto bg-[#0A0A0A] mb-6 rounded-2xl sm:mt-10 mt-5 ">
         <div className="table-layout bf-[#0A0A0A] grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] p-2 px-3 rounded-lg border-black">
           <p>#</p>
           <p>Coins</p>
@@ -152,10 +156,11 @@ const Home = () => {
           </Link>
         ))}
       </div>
+      </div>
 
       <div className="mt-15">
         <p className="border border-gray-900 w-[90vw] m-auto"></p>
-        <div className="text-center">
+        <div className="text-center w-full">
           <h2 className="text-3xl font-bold m-2">
             All-In-One Crypto Tracker to Manage Your <br /> Portfolio More
             Efficiently
@@ -167,17 +172,15 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="cryptoAi my-15 relative">
-        <div className="absolute left-1/2 -translate-x-1/3 w-[30vw] h-[50vh] bg-[#3d2e1e]/20 blur-[120px]" />
+      <div className="cryptoAi my-15">
         <div className="bg-gradient-to-br from-[#161412] to-[#111010] m-auto rounded-2xl h-[55vh] w-[90vw] flex flex-col items-center justify-center gap-5">
-
-          <h2 className="font-bold text-4xl">
+          <h2 className="font-bold text-4xl mx-3 text-center">
             Find the Best Crypto Tracker with AI
           </h2>
           <p className="text-2xl text-center text-white/70">
             Ask AI anything about crypto <br /> instantly.
           </p>
-          <div className="flex gap-10 items-center justify-center">
+          <div className="flex flex-col sm:flex-row gap-5 sm:gap-10 items-center justify-center">
             <div
               onClick={handleChat}
               className="flex items-center gap-1 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer"

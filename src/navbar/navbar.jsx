@@ -26,7 +26,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="flex items-center justify-between p-2 px-5 bg-neutral-900 w-screen fixed">
+      <div className="flex items-center justify-between p-2 px-5 bg-neutral-900 w-screen fixed z-1">
         <div className="flex items-center gap-2">
           <img src={logo} alt="logo" className="cursor-pointer w-9 h-9 hover:scale-110 transition"/>
           <Link to={"/"} className="font-bold cursor-pointer text-lg">Cryptoplace</Link>
