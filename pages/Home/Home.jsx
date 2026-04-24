@@ -117,7 +117,7 @@ const Home = () => {
 
      <div className="overflow-x-auto">
 
-     <div className="crypto-table sm:max-w-[80vw] min-w-[700px] pb-5 m-auto bg-[#0A0A0A] mb-6 rounded-2xl sm:mt-10 mt-5 ">
+     <div className="crypto-table sm:max-w-[80vw] min-w-[800px] pb-5 m-auto bg-[#0A0A0A] mb-6 rounded-2xl sm:mt-10 mt-5 ">
         <div className="table-layout bf-[#0A0A0A] grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] p-2 px-3 rounded-lg border-black">
           <p>#</p>
           <p>Coins</p>

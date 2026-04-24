@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen">
       <div className="mt-30 flex flex-col justify-center items-center">
-        <h2 className="text-4xl font-bold">
+        <h2 className="text-4xl font-bold text-center">
           About CryptoPlace & Brand Details
         </h2>
         <p className="text-white/70 max-w-3xl mx-auto text-center mt-6 leading-8">
@@ -16,7 +16,7 @@ const AboutUs = () => {
         </p>
         <div className="mt-16 text-center">
           <h3 className="text-3xl font-bold text-white">Our Mission</h3>
-          <p className="text-white/70 max-w-2xl mx-auto mt-4 leading-8">
+          <p className="text-white/70 max-w-2xl mx-5 mt-4 leading-8">
             Our goal is to simplify cryptocurrency tracking and provide users
             with accurate, real-time data through a fast, clean, and responsive
             experience.

@@ -12,7 +12,7 @@ const Footer = () => {
       {/* Main content */}
       <div className="relative max-w-6xl mx-auto px-10 pt-16 pb-10">
         {/* Top section */}
-        <div className="flex items-start flex-wrap gap-90 mb-16">
+        <div className="flex items-start flex-wrap gap-10 sm:gap-90 mb-16">
           {/* Brand */}
           <div className="flex flex-col gap-3 max-w-xs">
             <div className="flex items-center gap-2">
@@ -39,7 +39,7 @@ const Footer = () => {
         {/* Bottom divider */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
         {/* Big brand name */}
-        <h2 className="text-9xl font-black text-center bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 bg-clip-text text-transparent leading-none opacity-20 select-none tracking-tighter">
+        <h2 className="sm:text-9xl text-4xl font-black text-center bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 bg-clip-text text-transparent leading-none opacity-20 select-none tracking-tighter">
           CryptoPlace
         </h2>
         {/* Copyright */}
