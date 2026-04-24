@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
-    <div className="min-h-[85vh] bg-black px-4 py-16">
+    <div className="min-h-[85vh] bg-black px-4 py-16 mt-10 sm:mt-0">
       <div className="mx-auto w-full max-w-6xl overflow-hidden rounded-[32px] border border-white/10 bg-[#090909] shadow-[0_0_60px_rgba(255,140,0,0.08)]">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Left Side */}

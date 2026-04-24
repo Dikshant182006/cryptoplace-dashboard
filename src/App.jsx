@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "./navbar/navbar.jsx";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home.jsx";
-import Coin from "../pages/Coin/Coin.jsx"
+import Coin from "../pages/Coin/Coin.jsx";
 import SignUp from "../pages/SignUp/SignUp.jsx";
 import Footer from "./Footer/Footer.jsx";
 import CryptoList from "../pages/Cryptocurrency/CryptoList.jsx";

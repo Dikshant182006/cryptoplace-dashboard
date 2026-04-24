@@ -46,7 +46,7 @@ const HelpCenter = () => {
 
   return (
     <div className="h-screen m-25">
-      <div className="flex justify-between">
+      <div className="flex justify-between flex-col gap-10 sm:flex-row">
         <div>
           <h2 className="text-4xl leading-11 font-bold">
             Get the Answers to All Your <br /> Questions
