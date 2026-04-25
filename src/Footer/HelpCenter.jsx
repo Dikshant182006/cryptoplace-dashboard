@@ -45,8 +45,8 @@ const HelpCenter = () => {
   ];
 
   return (
-    <div className="h-screen m-25">
-      <div className="flex justify-between flex-col gap-10 sm:flex-row">
+    <div className="h-screen my-20 mx-5">
+      <div className="flex flex-col gap-30 sm:flex-row">
         <div>
           <h2 className="text-4xl leading-11 font-bold">
             Get the Answers to All Your <br /> Questions
@@ -63,9 +63,9 @@ const HelpCenter = () => {
               <div
                 key={index}
                 onClick={() => handleData(index)}
-                className="border-b cursor-pointer w-[40vw] py-3"
+                className="border-b cursor-pointer py-3"
               >
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center md:w-[30vw]">
                   <span
                     className={
                       active === index
@@ -80,7 +80,7 @@ const HelpCenter = () => {
                 </div>
 
                 {active === index && (
-                  <p className="text-white/60 mt-2">{item.answer}</p>
+                  <p className="text-white/60 mt-2 md:w-[30vw]">{item.answer}</p>
                 )}
               </div>
             );

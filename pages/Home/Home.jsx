@@ -73,7 +73,7 @@ const Home = () => {
 
                 <form
                   onSubmit={searchHandle}
-                  className="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-lg w-[35vw] focus-within:ring-2 focus-within:ring-purple-400 transition-all"
+                  className="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-lg focus-within:ring-2 focus-within:ring-purple-400 transition-all"
                 >
                   <span className="pl-4 text-gray-400 text-lg ">🔍</span>
                   <input
