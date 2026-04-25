@@ -105,9 +105,9 @@ const CryptoList = () => {
   </div>
 </div>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto hide-scrollbar-x">
         <div className="table m-auto my-10 pb-5 min-h-[60vh] w-[95vw] bg-[#090909] rounded-xl pt-5 text-white/50 pr-5 overflow-x-auto ">
-          <div className="grid min-w-[200vw] sm:min-w-[70vw] grid-cols-[0.5fr_2fr_0.5fr_0.5fr_0.5fr_1fr_1fr_1fr] gap-10 mb-10 text-right">
+          <div className="grid min-w-[240vw] sm:min-w-[70vw] grid-cols-[0.5fr_2fr_0.5fr_0.5fr_0.5fr_1fr_1fr_1fr] gap-10 mb-10 text-right">
             <p>#</p>
             <p className="text-start">Name</p>
             <p>1h %</p>

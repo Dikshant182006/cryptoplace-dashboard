@@ -24,3 +24,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #444; /* hover effect */
 }
+
+/* Hide ONLY horizontal scrollbar */
+.hide-scrollbar-x::-webkit-scrollbar:horizontal {
+  display: none;
+}
+
+/* Firefox */
+.hide-scrollbar-x {
+  scrollbar-width: thin; /* keeps vertical visible */
+}

@@ -51,7 +51,7 @@ const Home = () => {
   }, [allCoin]);
 
   return (
-    <div className="home p-2 mt-15">
+    <div className="home p-2 mt-15 ">
       <div className="home p-2 relative">
         <div className="absolute left-1/2 -translate-x-1/2 w-[30vw] h-[60vh] bg-purple-600/15 blur-[120px]" />
         <div>
@@ -73,7 +73,7 @@ const Home = () => {
 
                 <form
                   onSubmit={searchHandle}
-                  className="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full overflow-hidden shadow-lg w-[35vw] focus-within:ring-2 focus-within:ring-purple-400 transition-all"
+                  className="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-lg w-[35vw] focus-within:ring-2 focus-within:ring-purple-400 transition-all"
                 >
                   <span className="pl-4 text-gray-400 text-lg ">🔍</span>
                   <input
@@ -115,7 +115,7 @@ const Home = () => {
         </div>
       </div>
 
-     <div className="overflow-x-auto">
+     <div className="overflow-x-auto hide-scrollbar-x">
 
      <div className="crypto-table sm:max-w-[80vw] min-w-[800px] pb-5 m-auto bg-[#0A0A0A] mb-6 rounded-2xl sm:mt-10 mt-5 ">
         <div className="table-layout bf-[#0A0A0A] grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] p-2 px-3 rounded-lg border-black">
