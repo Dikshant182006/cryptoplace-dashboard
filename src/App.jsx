@@ -12,9 +12,12 @@ import AboutUs from "./Footer/AboutUs.jsx";
 import Features from "./Footer/Features.jsx";
 
 function App() {
+
+  const [light, setLight] = useState(false);
+
   return (
-    <div className="bg-black min-h-screen text-white">
-      <Navbar />
+     <div className={light ? "min-h-screen bg-white text-black" : "min-h-screen bg-black text-white"}>
+      <Navbar light={light} setLight={setLight} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/coins/" element={<CryptoList />} />

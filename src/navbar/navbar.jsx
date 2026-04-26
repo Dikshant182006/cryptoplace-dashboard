@@ -1,13 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { CoinContext } from "../../context/coinContext";
 import logo from "../assets/logo.svg";
 import setting from "../assets/setting.svg";
 
-function Navbar() {
+function Navbar({ light, setLight }) {
   const { setCurrency } = useContext(CoinContext);
+  // set the menu in the mobile
   const [menuOpen, setMenuOpen] = useState(false);
+  // set the toggle in the laptop and mobile black and dark color
+  const [settingOpen, setSettingOpen] = useState(false);
 
   const currencyHandler = (e) => {
     const value = e.target.value;
@@ -28,9 +31,20 @@ function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  const handleSetting = () => {
+    setSettingOpen(!settingOpen);
+  };
+
+  const handleChange = () => {
+    setLight((prev) => !prev);
+  };
+
   return (
     <>
-      <div className="flex items-center p-2 px-5 bg-neutral-900 w-full fixed top-0 left-0 z-50 text-white">
+      <div
+        className={`flex items-center p-2 px-5 w-full fixed top-0 left-0 z-50 transition
+${light ? "bg-white text-black" : "bg-neutral-900 text-white"}`}
+      >
         <div className="flex justify-between w-[60vw]">
           <div onClick={handleHandburg} className="md:hidden text-2xl">
             ☰
@@ -75,8 +89,34 @@ function Navbar() {
             >
               CryptoCurrencies
             </NavLink>
-            <img className="cursor-pointer w-6" src={setting} alt="setting" />
+            <img
+              onClick={handleSetting}
+              className="cursor-pointer w-6"
+              src={setting}
+              alt="setting"
+              className="hover:scale-110 transition"
+            />
           </div>
+
+          {settingOpen && (
+            <div className="bg-gradient-to-b from-[#2c2c2c] to-[#121212] mt-0.5 rounded-b-2xl absolute top-14 right-67 w-[15%] h-15">
+              <div className="text-white/60 p-4 flex justify-between items-center">
+                <h2>Theme</h2>
+                <label className="relative items-center flex cursor-pointer bg-gray-800 rounded-2xl">
+                  <input
+                    onChange={handleChange}
+                    checked={light}
+                    type="checkbox"
+                    className="sr-only peer"
+                  />
+
+                  <div className="w-10 bg-gray-700 h-6 rounded-full flex justify-center items-center text-black peer-checked:translate-x-6 transition">
+                    🌙
+                  </div>
+                </label>
+              </div>
+            </div>
+          )}
 
           <div className="currency-box md:flex gap-5 hidden">
             <select
@@ -130,7 +170,11 @@ function Navbar() {
             >
               CryptoCurrencies
             </NavLink>
-            <img className="cursor-pointer w-10" src={setting} alt="setting" />
+            <img
+              onClick={handleSetting}
+              className="cursor-pointer w-10 hover:scale-110 transition"
+              src={setting}
+            />
 
             <div className="currency-box md:flex gap-5 hidden">
               <select
