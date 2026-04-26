@@ -20,7 +20,7 @@ const LineChart = ({historicalData}) => {
         chartType='LineChart'
         data={data}
         height="100%"
-        width={"100vw"}
+        width={"98vw"}
         legendToggle
         />
   )

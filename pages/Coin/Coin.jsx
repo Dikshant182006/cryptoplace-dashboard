@@ -53,8 +53,8 @@ const Coin = () => {
   if (coinDetails && historicalData) {
     return (
       <div className="coin pt-24">
-        <div className="coin-name flex flex-col items-center gap-3">
-          <img src={coinDetails.image.large} alt="" className="w-24" />
+        <div className="coin-name flex flex-col items-center gap-3 h-screen">
+          <img src={coinDetails.image.large} className="w-24" />
           <p className="font-bold text-2xl">
             {coinDetails.name} ({coinDetails.symbol.toUpperCase()})
           </p>
@@ -63,11 +63,11 @@ const Coin = () => {
           </div>
 
           <div className="coin-info">
-            <ul>
-              <li>Crypto Market Rank</li>
+            <ul className="flex">
+              <li>Crypto Market Rank </li>
               <li>{coinDetails.market_cap_rank}</li>
             </ul>
-            <ul>
+            <ul className="flex">
               <li>Current Price</li>
               <li>{coinDetails.symbol} {coinDetails.market_data.current_price[currency.name].toLocaleString()}</li>
             </ul>
