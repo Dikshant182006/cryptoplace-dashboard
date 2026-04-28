@@ -125,7 +125,7 @@ const CryptoList = () => {
             >
               <p>{item.market_cap_rank}</p>
               <div className="flex items-center gap-2">
-                <img src={item.image} alt="" className="w-7" />
+                <img src={item.image} className="w-7" />
                 <p className="capitalize text-white font-bold">{item.id}</p>
                 <span className="text-white/70">
                   {item.symbol.toUpperCase()}

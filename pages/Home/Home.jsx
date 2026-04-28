@@ -63,7 +63,7 @@ const Home = () => {
 
               <div className="hero flex flex-col justify-center items-center">
                 <h2 className="font-bold text-[46px] text-center text-white bg-clip-text">
-                  Explore Crypto Markets with <br /> Real-Time Data
+                  Explore Crypto <br />Markets with Real-Time Intelligence
                 </h2>
 
                 <p className="text-center leading-7 w-full sm:w-[80%] lg:w-[35vw] py-3 text-gray-400">
@@ -115,47 +115,46 @@ const Home = () => {
         </div>
       </div>
 
-     <div className="overflow-x-auto hide-scrollbar-x">
-
-     <div className="crypto-table sm:max-w-[80vw] min-w-[800px] pb-5 m-auto bg-[#0A0A0A] mb-6 rounded-2xl sm:mt-10 mt-5 ">
-        <div className="table-layout bf-[#0A0A0A] grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] p-2 px-3 rounded-lg border-black">
-          <p>#</p>
-          <p>Coins</p>
-          <p>Price</p>
-          <p>24H Change</p>
-          <p className="text-right">Market Cap</p>
-        </div>
-        {displayCoin.slice(0, 8).map((item, index) => (
-          <Link
-            to={`/coin/${item.id}`}
-            key={item.id}
-            className="grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] items-center py-4 px-4 text-sm last:border-0 min-w-[80vw]"
-          >
-            <p>{item.market_cap_rank}</p>
-            <div className="flex items-center gap-2">
-              <img src={item.image} alt="coinImage" className="w-7" />
-              <p className="text-lg">{item.name + " - " + item.symbol}</p>
-            </div>
-            <p>
-              {currency.symbol}
-              {item.current_price.toLocaleString()}
-            </p>
-            <p
-              className={
-                item.price_change_percentage_24h > 0
-                  ? "text-green-800"
-                  : "text-red-800"
-              }
+      <div className="overflow-x-auto hide-scrollbar-x">
+        <div className="crypto-table sm:max-w-[80vw] min-w-[800px] pb-5 m-auto bg-[#0A0A0A] mb-6 rounded-2xl sm:mt-10 mt-5 ">
+          <div className="table-layout bf-[#0A0A0A] grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] p-2 px-3 rounded-lg border-black">
+            <p>#</p>
+            <p>Coins</p>
+            <p>Price</p>
+            <p>24H Change</p>
+            <p className="text-right">Market Cap</p>
+          </div>
+          {displayCoin.slice(0, 8).map((item, index) => (
+            <Link
+              to={`/coin/${item.id}`}
+              key={item.id}
+              className="grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] items-center py-4 px-4 text-sm last:border-0 min-w-[80vw]"
             >
-              {Math.floor(item.price_change_percentage_24h * 100) / 100}
-            </p>
-            <p className="text-end">
-              {currency.symbol}
-              {item.market_cap.toLocaleString()}
-            </p>
-          </Link>
-        ))}
-      </div>
+              <p>{item.market_cap_rank}</p>
+              <div className="flex items-center gap-2">
+                <img src={item.image} alt="coinImage" className="w-7" />
+                <p className="text-lg">{item.name + " - " + item.symbol}</p>
+              </div>
+              <p>
+                {currency.symbol}
+                {item.current_price.toLocaleString()}
+              </p>
+              <p
+                className={
+                  item.price_change_percentage_24h > 0
+                    ? "text-green-800"
+                    : "text-red-800"
+                }
+              >
+                {Math.floor(item.price_change_percentage_24h * 100) / 100}
+              </p>
+              <p className="text-end">
+                {currency.symbol}
+                {item.market_cap.toLocaleString()}
+              </p>
+            </Link>
+          ))}
+        </div>
       </div>
 
       <div className="mt-15">
