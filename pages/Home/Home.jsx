@@ -6,9 +6,29 @@ import gemini from "../../src/assets/gemini.svg";
 import claude from "../../src/assets/claude.svg";
 
 const Home = () => {
-  const { allCoin, currency } = useContext(CoinContext);
+  const {allCoin, currency } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
   const [input, setInput] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const ANIMATED_WORDS = [
+    "Real-Time Intelligence",
+    "Live Market Data",
+    "Deep Insights",
+    "Smart Alerts",
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => { 
+      setAnimating(true);
+      setTimeout(() => {
+        setWordIndex((prev) => (prev + 1) % ANIMATED_WORDS.length);
+        setAnimating(false);
+      }, 350);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [])
 
   const handleInput = (e) => {
     setInput(e.target.value);
@@ -52,6 +72,7 @@ const Home = () => {
 
   return (
     <div className="home p-2 mt-15 ">
+
       <div className="home p-2 relative">
         <div className="absolute left-1/2 -translate-x-1/2 w-[30vw] h-[60vh] bg-purple-600/15 blur-[120px]" />
         <div>
@@ -62,8 +83,15 @@ const Home = () => {
               </div>
 
               <div className="hero flex flex-col justify-center items-center">
-                <h2 className="font-bold text-[46px] text-center text-white bg-clip-text">
-                  Explore Crypto <br />Markets with Real-Time Intelligence
+                <h2 className="font-bold text-[46px] text-center text-white leading-tight">
+                  Explore Crypto Markets
+                  <br />
+                  <span className="text-white/40 font-normal text-[32px]">with</span>
+                  <br />
+                  <span className="bg-gradient-to-r from-violet-400 to-purple-500 bg-clip-text text-transparent" style={{
+                    transition: "opacity 0.35s ease, transform 0.35s ease",
+                    opacity: animating ? 0 : 1,
+                  }}>{ANIMATED_WORDS[wordIndex]}</span>
                 </h2>
 
                 <p className="text-center leading-7 w-full sm:w-[80%] lg:w-[35vw] py-3 text-gray-400">
