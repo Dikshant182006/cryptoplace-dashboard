@@ -34,3 +34,8 @@ body {
 .hide-scrollbar-x {
   scrollbar-width: thin; /* keeps vertical visible */
 }
+
+@keyframes aiFloat {
+  0%, 100% { transform: translateY(10px); }
+  50%       { transform: translateY(-20px); }
+}

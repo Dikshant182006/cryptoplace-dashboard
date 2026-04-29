@@ -70,9 +70,38 @@ const Home = () => {
     setDisplayCoin(allCoin);
   }, [allCoin]);
 
-  return (
-    <div className="home p-2 mt-15 ">
+  const tickerCoins = [...allCoin.slice(0,15), ...allCoin.slice(0,15)];
 
+  return (
+    <div className="home py-2 mt-12 ">
+    <div className="w-full overflow-hidden border-y border-white/10 bg-white/10 py-2 mb-2">
+    <div className="flex gap-10 w-max" style={{animation: "tickerScroll 30s linear infinite"}}>
+      {
+        tickerCoins.map((item, index) => (
+          <div key={index} className="flex items-center gap-2 shrink-0">
+            <img src={item.image} alt="itemImage" className="w-5 h-5 rounded-full"/>
+            <span className="text-white text-sm font-medium">{item.symbol?.toUpperCase()}</span>
+            <span className="text-gray-400 text-sm">
+              {currency.symbol} {item.current_price ?.toLocaleString()}
+            </span>
+            <span className={`text-xs ${
+              item.price_change_percentage_24h >= 0 ? "text-green-400" : "text-red-500"
+            }`}>
+              {item.price_change_percentage_24h >= 0 ? "▲" : "▼"} 
+              {Math.abs(
+                Math.floor(item.price_change_percentage_24h * 100 ) / 100
+              )}%
+            </span>
+          </div>
+        ))
+      }
+      <style>{`@keyframes tickerScroll {
+      0% {transform: translateX(0);}
+      100% {transform: translateX(-80%);}
+      }`}</style>
+    </div>
+
+    </div>
       <div className="home p-2 relative">
         <div className="absolute left-1/2 -translate-x-1/2 w-[30vw] h-[60vh] bg-purple-600/15 blur-[120px]" />
         <div>
@@ -121,7 +150,7 @@ const Home = () => {
                   </button>
                 </form>
 
-                <div className="flex flex-col gap-4 mt-10 sm:flex-row sm:gap-8 sm:mt-10 text-center">
+                <div className="flex flex-col gap-4 mt-10 sm:flex-row sm:gap-8 sm:mt-6 text-center">
                   <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10">
                     <p className="text-purple-400 font-bold text-xl">10,000+</p>
                     <p className="text-gray-400 text-xs mt-1">
@@ -144,7 +173,7 @@ const Home = () => {
       </div>
 
       <div className="overflow-x-auto hide-scrollbar-x">
-        <div className="crypto-table sm:max-w-[80vw] min-w-[800px] pb-5 m-auto bg-[#0A0A0A] mb-6 rounded-2xl sm:mt-10 mt-5 ">
+        <div className="crypto-table border border-white/10 sm:max-w-[80vw] min-w-[800px] pb-5 m-auto bg-[#0A0A0A] mb-6 rounded-2xl sm:mt-10 mt-5 ">
           <div className="table-layout bf-[#0A0A0A] grid grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] p-2 px-3 rounded-lg border-black">
             <p>#</p>
             <p>Coins</p>
@@ -168,13 +197,14 @@ const Home = () => {
                 {item.current_price.toLocaleString()}
               </p>
               <p
-                className={
+                className={ 
                   item.price_change_percentage_24h > 0
                     ? "text-green-800"
                     : "text-red-800"
                 }
               >
-                {Math.floor(item.price_change_percentage_24h * 100) / 100}
+                {item.price_change_percentage_24h > 0 ? "▲" : "▼"}
+                {Math.abs(Math.floor(item.price_change_percentage_24h * 100)) / 100} %
               </p>
               <p className="text-end">
                 {currency.symbol}
@@ -199,41 +229,64 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="cryptoAi my-15">
-        <div className="bg-gradient-to-br from-[#161412] to-[#111010] m-auto rounded-2xl h-[55vh] w-[90vw] flex flex-col items-center justify-center gap-5">
-          <h2 className="font-bold text-4xl mx-3 text-center">
-            Find the Best Crypto Tracker with AI
-          </h2>
-          <p className="text-2xl text-center text-white/70">
-            Ask AI anything about crypto <br /> instantly.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-5 sm:gap-10 items-center justify-center">
-            <div
-              onClick={handleChat}
-              className="flex items-center gap-1 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer"
-            >
-              <img src={chatgpt} alt="chatgptImg" className="invert" />
-              <button className="cursor-pointer">Ask ChatGPT</button>
-            </div>
+     <div className="cryptoAi my-15">
+  <div className="m-auto rounded-3xl w-[90vw] py-14 px-12 text-center relative overflow-hidden"
+    style={{ background: "linear-gradient(135deg, #13111c 0%, #0e0c18 60%, #161020 100%)" }}>
 
-            <div
-              onClick={handleGemini}
-              className="flex items-center gap-1 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer"
-            >
-              <img src={gemini} alt="geminiImg" />
-              <button className="cursor-pointer">Ask Gemini</button>
-            </div>
+    {/* Floating icons */}
+    {[
+      { emoji:"✅", bg:"rgba(16,185,129,0.18)", border:"rgba(16,185,129,0.3)",  top:"18%", left:"4%",  size:52, dur:3.8, delay:0   },
+      { emoji:"🔥", bg:"rgba(251,146,60,0.18)", border:"rgba(251,146,60,0.3)",  top:"48%", left:"3%",  size:48, dur:4.5, delay:0.6 },
+      { emoji:"❓", bg:"rgba(139,92,246,0.18)", border:"rgba(139,92,246,0.3)",  top:"72%", left:"5%",  size:46, dur:5.2, delay:1.2 },
+      { emoji:"⭐", bg:"rgba(234,179,8,0.18)",  border:"rgba(234,179,8,0.3)",   top:"18%", right:"4%", size:52, dur:4.1, delay:0.3 },
+      { emoji:"✨", bg:"rgba(139,92,246,0.18)", border:"rgba(139,92,246,0.3)",  top:"48%", right:"3%", size:48, dur:3.6, delay:0.9 },
+      { emoji:"🧡", bg:"rgba(251,146,60,0.18)", border:"rgba(251,146,60,0.3)",  top:"72%", right:"5%", size:46, dur:4.8, delay:1.5 },
+    ].map((item, index) => (
+      <div key={index} className="absolute flex items-center justify-center rounded-2xl"
+        style={{
+          width: item.size, height: item.size,
+          background: item.bg, border: `1px solid ${item.border}`,
+          fontSize: item.size * 0.45,
+          top: item.top, left: item.left, right: item.right,
+          animation: `aiFloat ${item.dur}s ease-in-out ${item.delay}s infinite`,
+        }}>
+        {item.emoji}
+      </div>
+    ))}
 
-            <div
-              onClick={handleClaude}
-              className="flex items-center gap-1 px-3 py-3 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg hover:bg-white/20 transition-all duration-300 cursor-pointer"
-            >
-              <img src={claude} alt="claudeImg" className="w-6" />
-              <button className="cursor-pointer">Ask Claude</button>
-            </div>
-          </div>
+    {/* Content */}
+    <div className="relative z-10">
+      <h2 className="font-bold text-4xl text-white mb-3 leading-tight">
+        Unsure What's the Best Crypto Tracker?
+      </h2>
+      <p className="text-white/45 text-base mb-8 leading-relaxed">
+        Don't take our word for it. Click a button to<br />
+        prompt "Best crypto tracker?".
+      </p>
+
+      <div className="flex flex-wrap gap-3 justify-center">
+        <div onClick={handleChat}
+          className="flex items-center gap-2 px-5 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15"
+          style={{ background:"rgba(255,255,255,0.07)", border:"1px solid rgba(255,255,255,0.14)" }}>
+          <img src={chatgpt} alt="chatgpt" className="w-4 h-4 invert" />
+          <span className="text-white text-sm font-medium">Ask ChatGPT</span>
+        </div>
+        <div onClick={handleGemini}
+          className="flex items-center gap-2 px-5 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15"
+          style={{ background:"rgba(255,255,255,0.07)", border:"1px solid rgba(255,255,255,0.14)" }}>
+          <img src={gemini} alt="gemini" className="w-4 h-4" />
+          <span className="text-white text-sm font-medium">Ask Gemini</span>
+        </div>
+        <div onClick={handleClaude}
+          className="flex items-center gap-2 px-5 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15"
+          style={{ background:"rgba(255,255,255,0.07)", border:"1px solid rgba(255,255,255,0.14)" }}>
+          <img src={claude} alt="claude" className="w-4 h-4" />
+          <span className="text-white text-sm font-medium">Ask Claude</span>
         </div>
       </div>
+    </div>
+  </div>
+</div>
     </div>
   );
 };
