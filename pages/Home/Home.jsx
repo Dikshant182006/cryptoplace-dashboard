@@ -74,7 +74,7 @@ const Home = () => {
 
   return (
     <div className="home py-2 mt-12 ">
-    <div className="w-full overflow-hidden border-y border-white/10 bg-white/10 py-2 mb-2">
+    <div className="w-full overflow-hidden border-y border-white/10 bg-white/10 py-2 mb-2 fixed ">
     <div className="flex gap-10 w-max" style={{animation: "tickerScroll 30s linear infinite"}}>
       {
         tickerCoins.map((item, index) => (
@@ -100,7 +100,6 @@ const Home = () => {
       100% {transform: translateX(-80%);}
       }`}</style>
     </div>
-
     </div>
       <div className="home p-2 relative">
         <div className="absolute left-1/2 -translate-x-1/2 w-[30vw] h-[60vh] bg-purple-600/15 blur-[120px]" />
